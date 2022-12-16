@@ -107,7 +107,7 @@ void mod(stack_t **stack, unsigned int number)
 	a = first->n;
 	b = second->n;
 	*stack = second;
-	(*stack)->n = (a % b);
+	(*stack)->n = (b % a);
 	free(first);
 }
 /**
