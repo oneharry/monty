@@ -20,10 +20,7 @@ int main(int ac, char **av)
 	stack_t *head = NULL;
 
 	if (ac != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		arg_err();
 	file_name = av[1];
 	fd = fopen(file_name, "r");
 	if (fd == NULL)
@@ -33,7 +30,10 @@ int main(int ac, char **av)
 	}
 	while (fgets(line, sizeof(line), fd) != 0)
 	{
-		command = strtok(line, "\n");
+		line_number++;
+		if (line[0] == '\n')
+			continue;
+		command = strtok(line, "\t\n");
 		cmd = handle_commands(command);
 		if (strcmp(cmd[0], "push") == 0)
 			num = handle_arg(cmd[1], line_number);
@@ -44,7 +44,6 @@ int main(int ac, char **av)
 			exit(EXIT_FAILURE);
 		}
 		fptr(&head, line_number);
-		line_number++;
 		free(cmd);
 	}
 	fclose(fd);
