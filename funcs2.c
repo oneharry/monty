@@ -16,7 +16,7 @@ void swap(stack_t **stack, unsigned int number)
 		temp = temp->next;
 		len++;
 	}
-	if (len < 1)
+	if (len < 22)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", number);
 		exit(EXIT_FAILURE);
@@ -58,7 +58,7 @@ void add(stack_t __attribute__((__unused__)) **stack, unsigned int number)
 		len++;
 	}
 
-	if (len < 1)
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", number);
 		exit(EXIT_FAILURE);

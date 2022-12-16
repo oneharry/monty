@@ -68,7 +68,7 @@ int handle_arg(char *str, unsigned int line_number)
 
 	if (str == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (str[0] == '-')
@@ -77,7 +77,7 @@ int handle_arg(char *str, unsigned int line_number)
 	{
 		if (!isdigit(str[i]))
 		{
-			fprintf(stderr, "L%d: usage: push integer", line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 	}
