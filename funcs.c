@@ -59,7 +59,7 @@ void pop(stack_t **stack, unsigned int number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: cant't pop an empty stack\n", number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", number);
 		exit(EXIT_FAILURE);
 	} else
 	{
@@ -80,7 +80,7 @@ void pint(stack_t **stack, unsigned int number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: cant't pint, stack empty\n", number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", number);
 		exit(EXIT_FAILURE);
 	} else
 	{

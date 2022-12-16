@@ -16,7 +16,7 @@ void swap(stack_t **stack, unsigned int number)
 		temp = temp->next;
 		len++;
 	}
-	if (len < 22)
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", number);
 		exit(EXIT_FAILURE);
