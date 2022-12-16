@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	FILE *fd;
 	char line[256];
 	char **cmd;
-	int line_number = 1;
+	int line_number = 0;
 	void (*fptr)(stack_t **, unsigned int);
 	stack_t *head = NULL;
 
