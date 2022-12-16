@@ -41,6 +41,10 @@ void (*run_command(char *command)) (stack_t **, unsigned int)
 		 {"swap", swap},
 		 {"add", add},
 		 {"nop", nop},
+		 {"sub", sub},
+		 {"mul", mul},
+		 {"div", div_monty},
+		 {"mod", mod},
 		 {NULL, NULL}
 	 };
 	int i;

@@ -72,3 +72,33 @@ void add(stack_t __attribute__((__unused__)) **stack, unsigned int number)
 	(*stack)->n = a + b;
 	free(first);
 }
+/**
+  * sub - find the difference between the 2 top element
+  * @stack: stack
+  * @number: number of lines
+  * Return: void
+  */
+void sub(stack_t **stack, unsigned int number)
+{
+	stack_t *temp, *first, *second;
+	int a, b, len = 0;
+
+	temp = *stack;
+	while (temp)
+	{
+		temp = temp->next;
+		len++;
+	}
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", number);
+		exit(EXIT_FAILURE);
+	}
+	first = *stack;
+	second = (*stack)->next;
+	a = first->n;
+	b = second->n;
+	free(first);
+	*stack = second;
+	(*stack)->n = (b - a);
+}
