@@ -31,10 +31,10 @@ int main(int ac, char **av)
 	while (fgets(line, sizeof(line), fd) != 0)
 	{
 		line_number++;
-		command = strtok(line, "\n");
-		cmd = handle_commands(command);
-		if (skip_line(cmd[0]))
+		if (skip_line(line))
 			continue;
+		command = strtok(line, "\t\n");
+		cmd = handle_commands(command);
 		if (strcmp(cmd[0], "push") == 0)
 			num = handle_arg(cmd[1], line_number);
 		fptr = run_command(cmd[0]);

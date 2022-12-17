@@ -58,36 +58,23 @@ void pstr(stack_t **stack, unsigned int number)
 void rotl(stack_t **stack, unsigned int number)
 {
 	stack_t *temp, *first, *second;
-	int a, b, len = 0;
 
+	(void)number;
 	temp = *stack;
-
+	first = *stack;
+	if (temp)
+		second = (*stack)->next;
 	while (temp)
 	{
+		if (temp->next == NULL)
+		{
+			*stack = second;
+			first->next = NULL;
+			temp->next = first;
+			break;
+		}
 		temp = temp->next;
-		len++;
 	}
-
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", number);
-		exit(EXIT_FAILURE);
-	}
-
-	temp = *stack;
-	if (temp->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", number);
-		exit(EXIT_FAILURE);
-	}
-
-	first = *stack;
-	second = (*stack)->next;
-	a = first->n;
-	b = second->n;
-	*stack = second;
-	(*stack)->n = (a % b);
-	free(first);
 }
 /**
   * rotr - rotates the stack to the bottom

@@ -35,9 +35,15 @@ void free_stack(stack_t **stack)
   * @str: line
   * Return: 1 or 0
   */
-int skip_line(char *str)
+int skip_line(char *line)
 {
-	if (str[0] == '\n' || str[0] == '#')
+	int i = 0;
+	while (line[i] == ' ')
+	{
+		i++;
+		continue;
+	}
+	if (line[i] == '\n' || line[i] == '#')
 		return (1);
 	return (0);
 }
