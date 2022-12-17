@@ -84,25 +84,17 @@ void rotl(stack_t **stack, unsigned int number)
   */
 void rotr(stack_t **stack, unsigned int number)
 {
-	stack_t *temp, *first, *second;
-	int a, b, len = 0;
+	stack_t *temp, *head = *stack;
 
-	temp = *stack;
-	while (temp)
+	(void)number;
+	while (head)
 	{
-		temp = temp->next;
-		len++;
+
+		temp = head->prev;
+		head->prev = head->next;
+		head->next = temp;
+		head = head->prev;
 	}
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", number);
-		exit(EXIT_FAILURE);
-	}
-	first = *stack;
-	second = (*stack)->next;
-	a = first->n;
-	b = second->n;
-	free(first);
-	*stack = second;
-	(*stack)->n = (b - a);
+	if (head)
+		*stack = temp->prev;
 }
