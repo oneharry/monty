@@ -31,7 +31,7 @@ int main(int ac, char **av)
 	while (fgets(line, sizeof(line), fd) != 0)
 	{
 		line_number++;
-		if (line[0] == '\n')
+		if (skip_line(line))
 			continue;
 		command = strtok(line, "\t\n");
 		cmd = handle_commands(command);

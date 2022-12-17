@@ -60,4 +60,5 @@ void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+int skip_line(char *str);
 #endif

@@ -30,3 +30,14 @@ void free_stack(stack_t **stack)
 		free(temp);
 	}
 }
+/**
+  * skip_line - checks for # comment or empty line
+  * @str: line
+  * Return: 1 or 0
+  */
+int skip_line(char *str)
+{
+	if (str[0] == '\n' || str[0] == '#')
+		return (1);
+	return (0);
+}
