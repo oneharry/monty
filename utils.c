@@ -41,3 +41,13 @@ int skip_line(char *str)
 		return (1);
 	return (0);
 }
+/**
+  * printchar - convert ascii value to character
+  * @n: ascii value
+  * Return: character
+  */
+char printchar(int n)
+{
+	(void)n;
+	return (0);
+}

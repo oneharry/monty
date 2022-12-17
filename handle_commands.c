@@ -45,6 +45,10 @@ void (*run_command(char *command)) (stack_t **, unsigned int)
 		 {"mul", mul},
 		 {"div", div_monty},
 		 {"mod", mod},
+		 {"pchar", pchar},
+		 {"pstr", pstr},
+		 {"rotl", rotl},
+		 {"rotr", rotr},
 		 {NULL, NULL}
 	 };
 	int i;

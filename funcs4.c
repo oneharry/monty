@@ -7,28 +7,20 @@
   */
 void pchar(stack_t **stack, unsigned int number)
 {
-	int a, b, len = 0;
-	stack_t *temp, *first, *second;
+	int n;
 
-	temp = *stack;
-	while (temp)
+	if (*stack == NULL)
 	{
-		temp = temp->next;
-		len++;
-	}
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", number);
 		exit(EXIT_FAILURE);
 	}
-
-	first = *stack;
-	second = (*stack)->next;
-	a = first->n;
-	b = second->n;
-	free(first);
-	*stack = second;
-	(*stack)->n = (a * b);
+	n = (*stack)->n;
+	if ((n < 65 || n > 122) && (n > 90 || n < 97))
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", n);
 }
 
 /**
@@ -39,35 +31,22 @@ void pchar(stack_t **stack, unsigned int number)
   */
 void pstr(stack_t **stack, unsigned int number)
 {
-	int a, b, len = 0;
-	stack_t *temp, *first, *second;
+	int n;
+	stack_t *temp = *stack;
 
-	temp = *stack;
-	while (temp)
+	(void)number;
+	if (*stack == NULL)
+		printf("\n");
+
+	while (temp && (temp->n != 0))
 	{
+		n = temp->n;
+		if ((n < 65 || n > 122) && (n > 90 || n < 97))
+			break;
+		printf("%c", n);
 		temp = temp->next;
-		len++;
 	}
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", number);
-		exit(EXIT_FAILURE);
-	}
-
-	temp = *stack;
-	if (temp->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", number);
-		 exit(EXIT_FAILURE);
-	}
-
-	first = *stack;
-	second = (*stack)->next;
-	a = first->n;
-	b = second->n;
-	free(first);
-	*stack = second;
-	(*stack)->n = (b / a);
+	printf("\n");
 }
 
 /**
