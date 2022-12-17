@@ -32,12 +32,13 @@ void free_stack(stack_t **stack)
 }
 /**
   * skip_line - checks for # comment or empty line
-  * @str: line
+  * @line: line
   * Return: 1 or 0
   */
 int skip_line(char *line)
 {
 	int i = 0;
+
 	while (line[i] == ' ')
 	{
 		i++;

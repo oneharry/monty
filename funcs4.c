@@ -35,9 +35,6 @@ void pstr(stack_t **stack, unsigned int number)
 	stack_t *temp = *stack;
 
 	(void)number;
-	if (*stack == NULL)
-		printf("\n");
-
 	while (temp && (temp->n != 0))
 	{
 		n = temp->n;
@@ -64,16 +61,19 @@ void rotl(stack_t **stack, unsigned int number)
 	first = *stack;
 	if (temp)
 		second = (*stack)->next;
-	while (temp)
+	if (temp && temp->next != NULL)
 	{
-		if (temp->next == NULL)
+		while (temp)
 		{
-			*stack = second;
-			first->next = NULL;
-			temp->next = first;
-			break;
+			if (temp->next == NULL)
+			{
+				*stack = second;
+				first->next = NULL;
+				temp->next = first;
+				break;
+			}
+			temp = temp->next;
 		}
-		temp = temp->next;
 	}
 }
 /**
